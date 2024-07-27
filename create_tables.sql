@@ -51,8 +51,9 @@ CREATE TABLE `catalogue_types` (
 CREATE TABLE `catalogue` (
   `id` INTEGER PRIMARY KEY AUTOINCREMENT,
   `name` TEXT,
-  `Description` TEXT,
-  `Price` REAL,
+  `description` TEXT,
+  `cost_price` REAL,
+  `sell_price` REAL,
   `catalogue_type_id` INTEGER,
   FOREIGN KEY (`catalogue_type_id`) REFERENCES `catalogue_types`(`id`)
 );
