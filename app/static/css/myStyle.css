@@ -1,0 +1,110 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Container for the sidebar and main content */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 20px;
+    position: relative;
+    transition: width 0.3s;
+}
+
+.sidebar.collapsed {
+    width: 80px;
+}
+
+/* Collapse button in the sidebar */
+.collapse-btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+/* Menu styles */
+.menu {
+    margin-top: 40px;
+}
+
+.menu-item {
+    list-style: none;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.menu-item:hover {
+    background-color: var(--hover-color);
+}
+
+.menu-item::before {
+    content: attr(data-icon);
+    margin-right: 10px;
+}
+
+.upgrade {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+.upgrade:hover {
+    background-color: var(--hover-accent-color);
+}
+
+/* Main content styles */
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Theme variables */
+:root {
+    --bg-color: #89CFF0; /* Baby Blue */
+    --text-color: BLack; /* White */
+    --accent-color: #FFFFE0; /* Light Yellow */
+    --hover-color: #e0e0a1; /* Darker Light Yellow for hover */
+    --hover-accent-color: #d1d1b3; /* Slightly darker Light Yellow for upgrade button hover */
+}
+
+/* Toggle theme button */
+#toggle-theme {
+    margin-bottom: 20px;
+    background: none;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+}
+
