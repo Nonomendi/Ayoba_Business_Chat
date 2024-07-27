@@ -1,7 +1,7 @@
 import sqlite3
 
 # Define the path to your SQL file
-sql_file_path = 'create_tables.sql'
+sql_file_path = 'dumby_data.sql'
 
 # Create a connection to the SQLite database
 conn = sqlite3.connect('Ayoba.db')
@@ -19,7 +19,11 @@ with open(sql_file_path, 'r') as sql_file:
 for statement in sql_script.split(';'):
     statement = statement.strip()
     if statement:  # Avoid executing empty statements
-        cursor.execute(statement)
+        try:
+            cur=cursor.execute(statement)
+        except Exception as e:
+            print(statement)
+            print(e)
 
 # Commit the changes
 conn.commit()
